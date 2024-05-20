@@ -29,5 +29,6 @@ let lines = input.split("\n");
 // O comando armazena o valor do primeiro elemento na variável A. O comando shift remove o elemento da lista. lines = ['9']
 var A = parseInt(lines.shift());
 var B = parseInt(lines.shift());
+var X = A + B
 
-console.log(`X = ${A + B}`);
+console.log(`X = ${X}`);
