@@ -22,7 +22,7 @@
 # 10.0
 
 # Função auxiliar para calcular a média
-def media(a:int, b:int):
+def media(a:float, b:float):
     return ((a * 3.5) + (b * 7.5)) / 11
 
 # Programa principal
