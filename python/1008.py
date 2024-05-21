@@ -26,10 +26,12 @@
 
 # Função auxiliar para calcular o salário do funcionário
 def salario(horas:int, valor_hora:float):
+    '''Função que retorna o salário do funcionário'''
     return horas * valor_hora
 
 # Programa principal
 def main():
+    '''Função Principal'''
 
     # Coleta os dados
     numero_funcionario = int(input())
