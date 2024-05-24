@@ -22,10 +22,12 @@
 
 # Função auxiliar que calcula a área da circunferência
 def area_circunferencia(r:float):
+    '''Função que retorna a área da circunferência'''
     return 3.14159 * r * r
 
 # Programa principal
 def main():
+    '''Função Principal'''
 
     # Coleta o dado
     r = float(input())
