@@ -30,3 +30,43 @@
 // 5.0 7.0 2.0         NAO FORMA TRIANGULO
 
 // 6.0 8.0 10.0        TRIANGULO RETANGULO
+
+let input = require("fs").readFileSync("./INICIANTE/javascript/stdin", "utf8");
+let lines = input.split("\n");
+
+// Coleta dos dados
+var lista = lines[0].split(' ').map(Number)
+
+// Processamento dos dados
+function tiposDeTriangulos(lista) {
+    var listaOrdenada = lista.slice().sort(compararNumeros)
+    var a = listaOrdenada[2]
+    var b = listaOrdenada[1]
+    var c = listaOrdenada[0]
+
+    if (a >= b + c) {
+        console.log('NAO FORMA TRIANGULO')
+    } else {
+        if (a ** 2 == b ** 2 + c ** 2) {
+            console.log('TRIANGULO RETANGULO')
+        }
+        if (a ** 2 > b ** 2 + c ** 2){
+            console.log('TRIANGULO OBTUSANGULO')
+        }
+        if (a ** 2 < b ** 2 + c ** 2) {
+            console.log('TRIANGULO ACUTANGULO')
+        }
+        if (a === b && b === c) {
+            console.log('TRIANGULO EQUILATERO')
+        }
+        if ((a === b && b != c) || (a === c && c != b) || (b === c && c != a)) {
+            console.log('TRIANGULO ISOSCELES')
+        }
+    }
+}
+function compararNumeros(a, b) {
+    return a - b;
+}
+
+// Retorno do pedido
+tiposDeTriangulos(lista)
