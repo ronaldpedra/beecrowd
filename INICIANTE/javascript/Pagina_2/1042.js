@@ -50,7 +50,7 @@ function imprimeLista(lista){
 
 function compararNumeros(a, b) {
     return a - b;
-  }
+}
 
 // Retorno do pedido
 imprimeListaOrdenada(lista)
