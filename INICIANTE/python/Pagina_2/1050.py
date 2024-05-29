@@ -47,8 +47,6 @@ def dados(entrada: str):
     return int(entrada)
 
 # Programa principal
-
-
 def main():
     '''Função Principal'''
 
