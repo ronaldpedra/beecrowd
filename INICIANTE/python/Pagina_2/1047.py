@@ -26,7 +26,7 @@ def duracao_do_jogo(lista: list):
 
     ini = lista[0] * 60 + lista[1] # Início do jogo
     fim = lista[2] * 60 + lista[3]
-    
+
     if ini < fim:
         return divmod(fim - ini, 60)
     else:

@@ -20,3 +20,24 @@
 
 // 7 10 8 9            O JOGO DUROU 0 HORA(S) E 59 MINUTO(S)
 
+let input = require("fs").readFileSync("./INICIANTE/javascript/stdin", "utf8");
+let lines = input.split("\n");
+
+// Coleta dos dados
+var lista = lines[0].split(' ').map(Number)
+
+// Processamento dos dados
+function duracaoDoJogo(lista) {
+    var ini = lista[0] * 60 + lista[1] // Início do jogo
+    var fim = lista[2] * 60 + lista[3]
+
+    if (ini < fim) {
+        return [Math.floor((fim - ini) / 60), (fim - ini) % 60]
+    } else {
+        return [Math.floor(((fim + (24 * 60)) - ini) / 60), ((fim + (24 * 60)) - ini) % 60]
+    }
+}
+
+// Retorno do pedido
+let [hora, minuto] = duracaoDoJogo(lista)
+console.log(`O JOGO DUROU ${hora} HORA(S) E ${minuto} MINUTO(S)`)
