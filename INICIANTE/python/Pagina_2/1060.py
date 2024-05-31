@@ -32,7 +32,8 @@ def main():
     positivos = 0
     for _ in range(6):
         valor = dados(input())
-        if valor > 0: positivos += 1
+        if valor > 0:
+            positivos += 1
 
     # Retorno do pedido
     print(f'{positivos} valores positivos')
