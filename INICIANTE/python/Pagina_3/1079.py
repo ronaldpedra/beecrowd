@@ -21,7 +21,7 @@ def media_ponderada(conjunto_de_valores: list):
     '''Retorna os tipos de números'''
 
     for valores in conjunto_de_valores:
-        
+
         print(f'{(((valores[0] * 2) + (valores[1] * 3) + (valores[2] * 5)) / 10):.1f}')
 
     return None

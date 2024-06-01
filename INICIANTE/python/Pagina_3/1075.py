@@ -27,7 +27,7 @@ def resto_dois(n: int):
     multiplo = 1
 
     while True:
-        
+
         numeros = n * multiplo + 2
         multiplo += 1
         if numeros > 10000:
@@ -44,7 +44,7 @@ def main():
 
     # Coleta os dados
     n = dados(input())
-    
+
     # Processamento dos dados
     # Retorno do pedido
     resto_dois(n)
