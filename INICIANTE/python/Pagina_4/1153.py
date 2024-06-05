@@ -16,7 +16,7 @@
 
 # Funções Auxiliares
 def fatorial(n: int):
-
+    '''Calcula o fatorial de um número de forma recursiva'''
     if n <= 1:
         return 1
 
