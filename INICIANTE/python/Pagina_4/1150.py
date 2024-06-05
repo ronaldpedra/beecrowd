@@ -40,10 +40,10 @@ def main():
     while True:
         if soma > y:
             break
-        else:
-            soma += x
-            x += 1
-            inteiros += 1
+
+        soma += x
+        x += 1
+        inteiros += 1
 
     # Retorno do pedido
     print(inteiros)
