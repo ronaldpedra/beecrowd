@@ -16,18 +16,22 @@ def testar(n, primos_elementares):
         return ehprimo
 
     if primos_elementares[-1] < n:
-        print('entrou')
         baliza = primos_elementares[-1] + 1
+        
         continua = True
-        while continua:
+        while True:
+            print(baliza)
             if str(baliza)[-1] in ['1', '3', '7', '9']:
                 for primo in primos_elementares:
-                    if baliza % primo != 0:
-                        primos_elementares.append(baliza)
+                    print(baliza % primo)
+                    if baliza % primo == 0:
                         continua = False
-                        testar(n, primos_elementares)
-                    else:
-                        return naoehprimo
+                if continua:
+                    primos_elementares.append(baliza)
+                break                    
+            baliza += 1
+        print(n, primos_elementares)
+        testar(n, primos_elementares)
     return naoehprimo
 
 numero = int(input())
