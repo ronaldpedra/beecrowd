@@ -21,10 +21,15 @@ def soma_cinco_pares_consecutivos(caso: int):
     '''Calcula a soma dos cinco pares consecutivos'''
     if caso % 2 == 0:
         return caso * 5 + 20
-    
+
     return (caso + 1) * 5 + 20
-    
-def dados(lista: bool = False, inteiro: bool = False , flutuante: bool = False, caracteres: bool = True):
+
+def dados(
+        lista: bool = False,
+        inteiro: bool = False,
+        flutuante: bool = False,
+        caracteres: bool = True
+        ):
     '''Retorna a variável do usuário'''
     entrada = str(input())
     if lista:
@@ -40,8 +45,6 @@ def dados(lista: bool = False, inteiro: bool = False , flutuante: bool = False, 
         if flutuante:
             return float(entrada)
     return entrada
-    
-    
 
 # Programa principal
 def main():
