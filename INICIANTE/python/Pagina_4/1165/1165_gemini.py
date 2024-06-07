@@ -24,33 +24,34 @@
 # 4     31                      37              par
 # 5     41      43              47              impar
 
-import time
+def eh_primo(numero):
+    """
+    Verifica se um número é primo.
 
+    Argumentos:
+      numero: O número a ser verificado.
+
+    Retorno:
+      True se o número for primo, False caso contrário.
+    """
+    if numero <= 1:
+        return False
+    if numero <= 3:
+        return True
+    if numero % 2 == 0 or numero % 3 == 0:
+        return False
+    i = 5
+    while i * i <= numero:
+        if numero % i == 0 or numero % (i + 2) == 0:
+            return False
+        i += 6
+    return True
+
+# Exemplo de uso
 n = int(input())
-for i in range(0, n):
-    num = int(input())
-    inicio = time.time()
-    if num > 9:
-        s = 0
-        j = 1
-        while j <= num:
-            if num % j == 0:
-                s += 1
-                if s > 2:
-                    break
-            j += 2
-    if num <= 9:
-        s = 0
-        j = 1
-        while j <= num:
-            if num % j == 0:
-                s += 1
-                if s > 2:
-                    break
-            j += 1
-    if s > 2:
-        print('{} nao eh primo'.format(num))
+for _ in range(n):
+    x = int(input())
+    if eh_primo(x):
+        print(f"{x} eh primo")
     else:
-        print('{} eh primo'.format(num))
-    fim = time.time()
-    print(f'{(fim - inicio):.6f}')
+        print(f"{x} nao eh primo")

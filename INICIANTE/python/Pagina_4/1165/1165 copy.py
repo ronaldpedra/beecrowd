@@ -59,6 +59,10 @@ Por fim, para maior eficiência do código, ao aplicar-se a etapa anterior, se o
 quociente da divisão do caso teste pelo primo elementar da vez (no loop) for menor
 que o primo divisor, o número é primo, tornando-se desnecessário testar os demais
 primos da lista de primos elementares.
+
+CONCLUSÃO:
+    - while loop é muito mais eficiente.
+    - o código deve ater-se ao pedido e evitar linhas desnecessária como na função dados()
 '''
 
 # Funções Auxiliares

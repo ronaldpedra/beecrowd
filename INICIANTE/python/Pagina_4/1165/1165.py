@@ -24,19 +24,34 @@
 # 4     31                      37              par
 # 5     41      43              47              impar
 
-n = int(input())
-for i in range(0, n):
-    num = int(input())
-    s = 0
-    j = 1
-    while j <= num / 2:
-        print(j)
-        if num % j == 0:
-            s += 1
-            if s >= 2:
-                break
-        j += 1
-    if s >= 2:
-        print('{} nao eh primo'.format(num))
-    else:
-        print('{} eh primo'.format(num))
+def main() -> None:
+    '''
+    Verifica se um número é primo
+
+    Argumentos:
+        n: número de casos teste
+        num: caso teste
+    
+    Retorno:
+        string se o número for primo ou não
+    '''
+    n = int(input())
+    for _ in range(n):
+        num = int(input())
+        s = 0
+        j = 1
+        while j <= num / 2:
+            print(j)
+            if num % j == 0:
+                s += 1
+                if s >= 2:
+                    break
+            j += 1
+        if s >= 2:
+            print(f'{num} nao eh primo')
+        else:
+            print(f'{num} eh primo')
+
+
+if __name__ == '__main__':
+    main()
