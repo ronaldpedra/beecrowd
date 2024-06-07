@@ -24,17 +24,33 @@
 # 4     31                      37              par
 # 5     41      43              47              impar
 
-n = int(input())
+import time
 
+n = int(input())
 for i in range(0, n):
     num = int(input())
-    s = 0
-    j = 1
-    while j <= num:
-        if num % j == 0:
-            s = s + 1
-        j = j + 1
+    inicio = time.time()
+    if num > 9:
+        s = 0
+        j = 1
+        while j <= num:
+            if num % j == 0:
+                s += 1
+                if s > 2:
+                    break
+            j += 2
+    if num <= 9:
+        s = 0
+        j = 1
+        while j <= num:
+            if num % j == 0:
+                s += 1
+                if s > 2:
+                    break
+            j += 1
     if s > 2:
         print('{} nao eh primo'.format(num))
     else:
         print('{} eh primo'.format(num))
+    fim = time.time()
+    print(f'{(fim - inicio):.6f}')
