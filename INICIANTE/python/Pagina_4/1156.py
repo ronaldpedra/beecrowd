@@ -29,7 +29,7 @@ def main():
     soma = 0
     contagem = 0
     for i in range(1, 40, 2):
-        
+
         soma += i / 2 ** contagem
         contagem += 1
 

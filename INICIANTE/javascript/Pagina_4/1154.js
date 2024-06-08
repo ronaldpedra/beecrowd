@@ -23,13 +23,9 @@
 let input = require("fs").readFileSync("./INICIANTE/javascript/stdin", "utf8");
 let lines = input.split("\n");
 
-
-
 // Funções Auxiliares
 function mediaIdade(soma, qtd) {
-
     return soma / qtd
-
 }
 
 // Coleta dos dados

@@ -16,13 +16,14 @@
 
 # Funções Auxiliares
 def sequencia_fibonacci(n: int):
+    ''' Retorna a sequencia fibonacci '''
     sequencia = [0, 1]
     if n < 3:
         return sequencia[:n]
-    
+
     for i in range(2, n):
         sequencia.append(sequencia[i - 1] + sequencia[i - 2])
-    
+
     return sequencia
 
 def dados(entrada: str):
