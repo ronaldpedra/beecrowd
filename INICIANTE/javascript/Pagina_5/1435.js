@@ -66,33 +66,14 @@ for (caso of lines) {
             // Verifica qual é a menor distância da borda e acrescenta 1 para atender ao pedido
             menor = [esquerda, direita, cima, embaixo].sort((a, b) => {return a - b})[0] + 1
             // Retorna o pedido com tamanho 3 para todas as saídas
-            saida += menor.toString().padStart(3)
+            if (j == 0) {
+                saida += menor.toString().padStart(3)
+            } else {
+                saida += menor.toString().padStart(4)
+            }
+            
         }
         console.log(saida)
     }
     console.log()
 }
-
-
-// for caso in casos_teste:
-
-
-//     for i in range(caso):
-//         for j in range(caso):
-
-
-//             esquerda = j
-//             direita = (caso - 1) - j
-//             cima = i
-//             embaixo = (caso - 1) - i
-
-
-//             menor = sorted([esquerda, direita, cima, embaixo])[0] + 1
-
-//             # Retorna o pedido com tamanho 3 para todas as saídas
-//             if j == 0:
-//                 print(f'{menor:>3}', end='')
-//             else:
-//                 print(f'{menor:>4}', end='')
-//         print()
-//     print()
