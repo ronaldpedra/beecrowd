@@ -68,29 +68,47 @@ Pode ser facilmente quebrado a partir de uma boa amostra de texto
 Cada um por si
 uma a uma
 """
+lines = []
+with open('./INICIANTE/stdin', 'r', encoding='utf-8') as stdin_file:
+    for line in stdin_file:
+        lines.append(line.replace('\n', ''))
+
 def descriptografar(sentenca: str) -> None:
-    texto_descriptografado = ''
+    """Função que descriptografa a mensagem"""
+    texto_decifrado = []
     for caractere in sentenca:
-        if caractere in cifra1:
-            indice = cifra1.find(caractere)
-            texto_descriptografado += cifra2[indice]
+        caractere_decifrado = mapa_decifracao.get(caractere.upper())
+        if caractere_decifrado is None:
+            texto_decifrado.append(caractere)
         else:
-            texto_descriptografado += caractere
-    print(texto_descriptografado)
+            if caractere.islower() or not caractere.isalpha():
+                texto_decifrado.append(caractere_decifrado.lower())
+            else:
+                texto_decifrado.append(caractere_decifrado)
+    print(''.join(texto_decifrado))
 
+while lines:
+    try:
+        # TAMANHO_CIFRA, QTD_SENTENCAS = map(int,input().split())
+        TAMANHO_CIFRA, QTD_SENTENCAS = map(int, lines.pop(0).split())
 
-TAMANHO_CIFRA, QTD_SENTENCAS = map(int,input().split())
+        # cifra1 = input().upper()
+        cifra1 = lines.pop(0).upper()
+        # cifra2 = input().upper()
+        cifra2 = lines.pop(0).upper()
+        mapa_decifracao = {}
+        for i in range(TAMANHO_CIFRA):
+            mapa_decifracao[cifra1[i]] = cifra2[i]
+            mapa_decifracao[cifra2[i]] = cifra1[i]
 
-cifra_saida = input()
-cifra_entrada = input()
+        sentencas_criptografadas = []
 
-sentencas_decriptografadas = []
-
-cifra1 = cifra_saida + cifra_entrada
-cifra2 = cifra_entrada + cifra_saida
-print(cifra1)
-print(cifra2)
-
-for _ in range(QTD_SENTENCAS):
-    sentenca_criptografada = input()
-    descriptografar(sentenca_criptografada)
+        for _ in range(QTD_SENTENCAS):
+            # sentenca_criptografada = input()
+            sentenca_criptografada = lines.pop(0)
+            sentencas_criptografadas.append(sentenca_criptografada)
+        for sentenca_criptografada in sentencas_criptografadas:
+            descriptografar(sentenca_criptografada)
+        print()
+    except EOFError:
+        break
