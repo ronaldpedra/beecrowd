@@ -54,6 +54,19 @@ Exemplo de Entrada	Exemplo de Saída
 """
 while True:
     try:
+        # Coleta os dados iniciais de habitantes e consultas
         habitantes, consultas = map(int, input().split())
+
+        # Guarda as notas dos habitantes
+        notas = [int(input()) for _ in range(habitantes)]
+
+        # Coloca em ordem decrescente para a consulta otimizada
+        notas.sort(reverse=True)
+
+        # Imprime o resultado da consulta
+        for _ in range(consultas):
+            consulta = int(input())
+            print(notas[consulta - 1])
+
     except EOFError:
         break
