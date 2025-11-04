@@ -43,33 +43,39 @@ Exemplo de Entrada	Exemplo de Saída
 """
 while True:
     try:
+        # Entrada de dados
+        matriz_entrada = []
         linhas, colunas = map(int, input().split())
-        matriz = {}
-        for linha in range(linhas):
-            entradas = list(map(int, input().split()))
-            for coluna in range(colunas):
-                if entradas[coluna] == 1:
-                    matriz[f'{linha}{coluna}'] = '9'
-        resultado_final = []
-        for linha in range(linhas):
-            resultado = ''
-            for coluna in range(colunas):
-                if matriz.get(f'{linha}{coluna}') == '9':
-                    resultado += '9'
+        for _ in range(linhas):
+            matriz_entrada.append(list(map(int, input().split())))
+
+        # Cria uma matriz saída somente com 0
+        matriz_saida = [[0 for _ in range(colunas)] for _ in range(linhas)]
+
+        # Movimentos para verificação dos vizinhos
+        movimentos = [(-1, 0), (1, 0), (0, -1), (0, 1)]
+
+        # Percorre a matriz entrada para processamento dos dados
+        for i in range(linhas):
+            for j in range(colunas):
+                if matriz_entrada[i][j] == 1:
+                    matriz_saida[i][j] = 9
                 else:
+
+                    # Verifica os vizinhos
                     paes_em_volta = 0
-                    if matriz.get(f'{linha - 1}{coluna}') == '9':
-                        paes_em_volta += 1
-                    if matriz.get(f'{linha + 1}{coluna}') == '9':
-                        paes_em_volta += 1
-                    if matriz.get(f'{linha}{coluna - 1}') == '9':
-                        paes_em_volta += 1
-                    if matriz.get(f'{linha}{coluna + 1}') == '9':
-                        paes_em_volta += 1
-                    resultado += str(paes_em_volta)
-            resultado_final.append(resultado)
-        for linha in resultado_final:
-            print(linha)
+                    for di, dj in movimentos:
+                        viz_i, viz_j = i + di, j + dj
+
+                        # Verifica se os vizinhos estão dentro do intervalo
+                        if 0 <= viz_i < linhas and 0 <= viz_j < colunas:
+                            if matriz_entrada[viz_i][viz_j] == 1:
+                                paes_em_volta += 1
+                    matriz_saida[i][j] = paes_em_volta
+
+        # Imprime o resultado
+        for linha in matriz_saida:
+            print(''.join(map(str, linha)))
 
     except EOFError:
         break
