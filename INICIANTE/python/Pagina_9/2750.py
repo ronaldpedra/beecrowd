@@ -75,3 +75,13 @@ Exemplo de Entrada	Exemplo de Saída
 |     15    |   17    |       F       |
 ---------------------------------------
 """
+COLUNAS = 39
+CABECALHO_RODAPE = f"{'-' * COLUNAS}"
+THEAD = f"|{'decimal':^{11}}|{'octal':^{9}}|{'Hexadecimal':^{15}}|"
+print(CABECALHO_RODAPE)
+print(THEAD)
+print(CABECALHO_RODAPE)
+for i in range(16):
+    TBODY = f"|{i:>{7}}{' ' * 4}|{oct(i)[2:]:>{5}}{' ' * 4}|{hex(i)[2:].upper():^{15}}|"
+    print(TBODY)
+print(CABECALHO_RODAPE)
