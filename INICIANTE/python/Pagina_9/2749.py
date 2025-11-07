@@ -1,6 +1,6 @@
-""""
-beecrowd | 2748
-Saída 2
+"""
+beecrowd | 2749
+Saída 3
 Por Roberto A. Costa Jr, UNIFEI BR Brazil
 
 Timelimit: 1
@@ -9,26 +9,26 @@ seguintes características:
 
 1. Ter 39 traços (-) na primeira linha;
 2. Ter uma | embaixo do primeiro traço e do trigésimo nono traço da 
-primeira linha, embaixo do 10 traço deve começar a escrever a palavra 
-"Roberto" e o restante preencher no meio com espaço em branco;
+primeira linha, embaixo do 2o traço deve começar a escrever "x = 35" e o 
+restante preencher com espaço em branco;
 3. Ter uma | embaixo do primeiro traço e do trigésimo nono traço da 
 primeira linha, preencher no meio com espaço em branco;
 4. Ter uma | embaixo do primeiro traço e do trigésimo nono traço da 
-primeira linha, embaixo do 10 traço deve começar a escrever o número 
-"5786" e o restante preencher no meio com espaço em branco;
+primeira linha, embaixo do 17o traço deve começar a escrever "x = 35" e 
+o restante preencher com espaço em branco;
 5. Repita o procedimento 3;
 6. Ter uma | embaixo do primeiro traço e do trigésimo nono traço da 
-primeira linha, embaixo do 10 traço deve começar a escrever a palavra 
-"UNIFEI" e o restante preencher no meio com espaço em branco;
+primeira linha, embaixo do 33o traço deve começar a escrever "x = 35" e 
+o restante preencher no meio com espaço em branco;
 7. Repita o procedimento 1.
 No final deve ficar igual a imagem a seguir:
 
 --------------------------------------- (39 traços)
-|        Roberto                      |
+|x = 35                               |
 |                                     |
-|        5786                         |
+|                x = 35               |
 |                                     |
-|        UNIFEI                       |
+|                               x = 35|
 --------------------------------------- (39 traços)
 
 Entrada
@@ -39,20 +39,10 @@ A saída será impresso conforme a figura acima.
 
 Exemplo de Entrada	Exemplo de Saída
 ---------------------------------------
-|        Roberto                      |
+|x = 35                               |
 |                                     |
-|        5786                         |
+|                x = 35               |
 |                                     |
-|        UNIFEI                       |
+|                               x = 35|
 ---------------------------------------
 """
-LINHAS = 7
-COLUNAS = 39
-TEXTOS = ['', 'Roberto', '', '5786', '', 'UNIFEI']
-for i in range(LINHAS):
-    if i in (0, LINHAS - 1):
-        print('-' * COLUNAS)
-    elif TEXTOS[i]:
-        print(f"|{' ' * 8}{TEXTOS[i]:<{39 - 10}}|")
-    else:
-        print(f"|{' ' * (COLUNAS - 2)}|")
