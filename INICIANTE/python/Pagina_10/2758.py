@@ -73,12 +73,20 @@ Exemplos de Entrada	Exemplos de Saída
                     A = 2128, B = -821
                     C = -1020, D = 1352
 """
+import sys
+import struct
+
+
+def f32(x: float) -> float:
+    """Converte para precisão simples (float32)"""
+    return struct.unpack('f', struct.pack('f', x))[0]
+
 while True:
     try:
-        a, b = map(float, input().split())
-        c, d = map(float, input().split())
+        a, b = map(float, sys.stdin.readline().split())
+        c, d = map(float, sys.stdin.readline().split())
 
-        print(f'A = {a:.6f}, B = {b:.6f}')
+        print(f'A = {f32(a):.6f}, B = {f32(b):.6f}')
         print(f'C = {c:.6f}, D = {d:.6f}')
 
         print(f'A = {a:.1f}, B = {b:.1f}')
