@@ -137,8 +137,8 @@ for _ in range(casos_teste):
             resultado_caso.append('Prossiga')
 
     resultado_final.append(resultado_caso)
-for i, caso in enumerate(resultado_final):
-    for resultado in caso:
+for i, caso1 in enumerate(resultado_final):
+    for resultado in caso1:
         print(resultado)
     if i < len(resultado_final) - 1:
         print()
