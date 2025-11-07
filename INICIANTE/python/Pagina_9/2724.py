@@ -103,32 +103,24 @@ Abortar
 """
 def verificar_experiencia_perigosa(caso, referencia):
     """Verifica se um composto perigoso está presente no caso"""
-    for elemento_perigoso in referencia:
-        if elemento_perigoso in caso:
+    nocivo_presente = False
+    for nocivo in referencia:
+        if nocivo in caso:
             try:
-                ultimo_char_elemento_perigoso = elemento_perigoso[-1]
-                proximo_char_elemento_perigoso = caso[caso.index(elemento_perigoso) + len(elemento_perigoso)]
-                if ultimo_char_elemento_perigoso.isdigit() and proximo_char_elemento_perigoso.isalpha():
-                    print(elemento_perigoso, 'Presente numero letra')
-                    return True
-                if ultimo_char_elemento_perigoso.isdigit() and proximo_char_elemento_perigoso.isdigit():
-                    print(elemento_perigoso, 'Ausente numero numero')
-                elif ultimo_char_elemento_perigoso.isalpha() and proximo_char_elemento_perigoso.islower():
-                    print(elemento_perigoso, 'Ausente letra letra')
-                else:
-                    return True
-
+                ultimo_char_nocivo = nocivo[-1]
+                proximo_char_nocivo = caso[caso.index(nocivo) + len(nocivo)]
+                if ultimo_char_nocivo.isdigit() and proximo_char_nocivo.isalpha():
+                    nocivo_presente = True
+                if ultimo_char_nocivo.isalpha() and proximo_char_nocivo.isupper():
+                    nocivo_presente = True
             except IndexError:
-                print(elemento_perigoso, 'Presente')
-        else:
-            print(elemento_perigoso, 'Ausente')
+                nocivo_presente = True
+    return nocivo_presente
 
-
-
-resultado = []
-
+resultado_final = []
 casos_teste = int(input())
 for _ in range(casos_teste):
+    resultado_caso = []
 
     nr_compostos_perigosos = int(input())
     compostos_perigosos = []
@@ -138,15 +130,15 @@ for _ in range(casos_teste):
 
     qtd_experiencias = int(input())
     for _ in range(qtd_experiencias):
-        print('------------')
         experiencia = input()
-        print('Composto analisado:', experiencia)
         if verificar_experiencia_perigosa(experiencia, compostos_perigosos):
-            resultado.append('Abortar')
+            resultado_caso.append('Abortar')
         else:
-            resultado.append('Prossiga')
-    resultado.append(' ')
+            resultado_caso.append('Prossiga')
 
-    # print()
-    # for res in resultado:
-    #     print(res)
+    resultado_final.append(resultado_caso)
+for i, caso in enumerate(resultado_final):
+    for resultado in caso:
+        print(resultado)
+    if i < len(resultado_final) - 1:
+        print()
