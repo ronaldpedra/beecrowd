@@ -46,3 +46,17 @@ Exemplo de Entrada	Exemplo de Saída
 |                               x = 35|
 ---------------------------------------
 """
+LINHAS = 7
+COLUNAS = 39
+TEXTOS = ['', 'x = 35', '', 'x = 35', '', 'x = 35']
+for i in range(LINHAS):
+    if i in (0, LINHAS - 1):
+        print('-' * COLUNAS)
+    elif i == 1:
+        print(f"|{TEXTOS[i]:<{COLUNAS - 2}}|")
+    elif i == 3:
+        print(f"|{TEXTOS[i]:^{COLUNAS - 2}}|")
+    elif i == 5:
+        print(f"|{TEXTOS[i]:>{COLUNAS - 2}}|")
+    else:
+        print(f"|{' ' * (COLUNAS - 2)}|")
