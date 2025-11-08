@@ -81,27 +81,33 @@ def f32(x: float) -> float:
     """Converte para precisão simples (float32)"""
     return struct.unpack('f', struct.pack('f', x))[0]
 
+
 while True:
-    try:
-        a, b = map(float, sys.stdin.readline().split())
-        c, d = map(float, sys.stdin.readline().split())
-
-        print(f'A = {f32(a):.6f}, B = {f32(b):.6f}')
-        print(f'C = {c:.6f}, D = {d:.6f}')
-
-        print(f'A = {a:.1f}, B = {b:.1f}')
-        print(f'C = {c:.1f}, D = {d:.1f}')
-
-        print(f'A = {a:.2f}, B = {b:.2f}')
-        print(f'C = {c:.2f}, D = {d:.2f}')
-
-        print(f'A = {a:.3f}, B = {b:.3f}')
-        print(f'C = {c:.3f}, D = {d:.3f}')
-
-        print(f'A = {a:.3E}, B = {b:.3E}')
-        print(f'C = {c:.3E}, D = {d:.3E}')
-
-        print(f'A = {a:.0f}, B = {b:.0f}')
-        print(f'C = {c:.0f}, D = {d:.0f}')
-    except EOFError:
+    line1 = sys.stdin.readline()
+    if not line1:
         break
+    line2 = sys.stdin.readline()
+
+    a, b = map(float, line1.split())
+    c, d = map(float, line2.split())
+
+    a = f32(a)
+    b = f32(b)
+
+    print(f'A = {a:.6f}, B = {b:.6f}')
+    print(f'C = {c:.6f}, D = {d:.6f}')
+
+    print(f'A = {a:.1f}, B = {b:.1f}')
+    print(f'C = {c:.1f}, D = {d:.1f}')
+
+    print(f'A = {a:.2f}, B = {b:.2f}')
+    print(f'C = {c:.2f}, D = {d:.2f}')
+
+    print(f'A = {a:.3f}, B = {b:.3f}')
+    print(f'C = {c:.3f}, D = {d:.3f}')
+
+    print(f'A = {a:.3E}, B = {b:.3E}')
+    print(f'C = {c:.3E}, D = {d:.3E}')
+
+    print(f'A = {a:.0f}, B = {b:.0f}')
+    print(f'C = {c:.0f}, D = {d:.0f}')
